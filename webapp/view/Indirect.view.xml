@@ -3,6 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:core="sap.ui.core"
     xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
     xmlns:t="sap.ui.table"
     xmlns="sap.m">
     <Page id="indirectPage" title="{i18n>title}">
@@ -21,8 +22,11 @@
         <content>
             <IconTabBar id="idIndirectMainTabBar" select="onTabSelect" expandable="false">
                 <items>
-                   <IconTabFilter id="idCreateTab" key="create" text="Create">
-    <HBox id="idHbox">
+                  <IconTabFilter id="idCreateTab" key="create" text="Create">
+              <layout:Grid id="idLayout" defaultSpan="L6 M6 S12" hSpacing="1" vSpacing="1">
+        <!-- Left Group -->
+        <layout:content>     
+    <VBox id="idhbox">
         <!-- Left Side Form -->
         <f:SimpleForm 
             id="formCreateIndirectLeft"
@@ -33,34 +37,51 @@
             labelSpanM="4"
             labelSpanS="12"
             class="sapUiSmallMarginEnd"
-            width="48%">
+            width="65%">
             <f:content>
-                <Label id="lblCreateExternalStep" text="External Step"/>
-                <Input id="inpCreateExternalStep" editable="true"/>
-                
-                <Label id="lblCreateProcessor" text="Processor"/>
+                <HBox id="idCreateStep" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateExternalStep" text="External Step" width="100px"/>
+                <Input id="inpCreateExternalStep" editable="true" />
+                </HBox>
+
+                 <HBox id="idCreateProc" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateProcessor" text="Processor"  width="100px"/>
                 <Input id="inpCreateProcessor" editable="false"/>
-                
-                <Label id="lblCreateIndirectTask" text="Indirect Task"/>
+                </HBox>
+
+                 <HBox id="idCreateIndirect" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateIndirectTask" text="Indirect Task"  width="100px"/>
                 <Input id="inpCreateIndirectTask" editable="false"/>
-                
-                <Label id="lblCreateStep" text="Step"/>
+                </HBox>
+
+                 <HBox id="idCreateSt" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateStep" text="Step"  width="100px"/>
                 <Input id="inpCreateStep"/>
-                
-                <Label id="lblCreateActivityArea" text="Activity Area"/>
+                </HBox>
+
+                 <HBox id="idCreateAct" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateActivityArea" text="Activity Area"  width="100px"/>
                 <Input id="inpCreateActivityArea" editable="true"/>
-                
-                <Label id="lblCreateStatus" text="Status"/>
-                <Select id="selCreateStatus">
+                </HBox>
+
+                 <HBox id="idCreateStatus" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateStatus" text="Status"  width="100px"/>
+                <Select id="selCreateStatus" width="185px">
                     <items>
                         <core:Item id="itemCreateStatusCreate" key="CREATE" text="Create"/>
                         <core:Item id="itemCreateStatusInProcess" key="IN_PROCESS" text="In Process"/>
                         <core:Item id="itemCreateStatusCompleted" key="COMPLETED" text="Completed"/>
                     </items>
                 </Select>
+                </HBox>
+
             </f:content>
         </f:SimpleForm>
+        </VBox>
+        </layout:content>
 
+        <layout:content>
+        <VBox id="idVbox"> 
         <!-- Right Side Form -->
         <f:SimpleForm 
             id="formCreateIndirectRight"
@@ -70,27 +91,40 @@
             labelSpanL="4"
             labelSpanM="4"
             labelSpanS="12"
-            width="70%">
+            class="sapUiSmallMarginEnd"
+            width="65%">
             <f:content>
-                <Label id="lblCreateStartDate" text="Start Date"/>
-                <DatePicker id="dpCreateStartDate" editable="true"/>
-                <TimePicker id="tpCreateStartTime" editable="true"/>
-                
-                <Label id="lblCreateEndDate" text="End Date"/>
+                <HBox id="idStart" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateStartDate" text="Start Date"  width="110px"/>
+                <DatePicker id="dpCreateStartDate" editable="true" />
+                <TimePicker id="tpCreateStartTime" editable="true" />
+                </HBox>
+
+                <HBox id="idEnd" justifyContent="SpaceBetween" alignItems="Center">
+                <Label id="lblCreateEndDate" text="End Date"  width="110px"/>
                 <DatePicker id="dpCreateEndDate" editable="true"/>
                 <TimePicker id="tpCreateEndTime" editable="true"/>
-                
-                <Label id="lblCreatePlExDuration" text="Pl. Ex. Duration"/>
+                </HBox>
+
+                <HBox id="idPlEx" justifyContent="Start" alignItems="Center">
+                <Label id="lblCreatePlExDuration" text="Pl. Ex. Duration"  width="110px"/>
                 <Input id="inpCreatePlExDuration" editable="true"/>
-                
-                <Label id="lblCreateAssignmentKey" text="Assignment Key"/>
+                </HBox>
+
+                <HBox id="idAsskey" justifyContent="Start" alignItems="Center">
+                <Label id="lblCreateAssignmentKey" text="Assignment Key"  width="110px"/>
                 <Input id="inpCreateAssignmentKey" editable="true"/>
-                
-                <Label id="lblCreateDisposalParty" text="Disposal Party"/>
+                </HBox>
+
+                <HBox id="idDispos" justifyContent="Start" alignItems="Center">
+                <Label id="lblCreateDisposalParty" text="Disposal Party"  width="110px"/>
                 <Input id="inpCreateDisposalParty" editable="false"/>
+                </HBox>
             </f:content>
         </f:SimpleForm>
-    </HBox>
+    </VBox>
+    </layout:content>
+    </layout:Grid>
 </IconTabFilter>
 
                     <IconTabFilter id="idCreateGroupTab" key="createGroup" text="Create Group">
@@ -101,14 +135,14 @@
                             visibleRowCount="10"
                             >
                             <t:columns>
-                                <t:Column id="colGroupIndirectLaborTask">
+                                <t:Column id="colGroupIndirectLaborTask" hAlign="Left" width="120px">
                                     <Label id="lblGroupIndirectTask" text="Indirect Labor Task"/>
                                     <t:template>
                                         <Input id="inpGroupIndirectLaborTask" value="{IndirectLaborTask}" editable="false"/>
                                     </t:template>
                                 </t:Column>
                                 
-                                <t:Column id="colGroupMode">
+                                <t:Column id="colGroupMode" hAlign="Left" width="50px">
                                     <Label id="lblGroupMode" text="Mode"/>
                                     <t:template>
                                         <Button id="btnGroupChangeMode" icon="sap-icon://edit" press="onChangeMode"/>
@@ -118,27 +152,27 @@
                                 <!-- Continue with similar pattern for remaining columns -->
                                 <!-- For brevity, I'll show a few more examples -->
 
-                                <t:Column id="colGroupPartyEntitled">
+                                <t:Column id="colGroupPartyEntitled" hAlign="Left" width="50px">
                                     <Label id="lblGroupPartyEntitled" text="Party Entitled to Dispose"/>
                                     <t:template>
                                         <Input id="inpGroupPartyEntitled" showValueHelp="true" valueHelpRequest="onPartyValueHelp"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupExternalStep">
+                                <t:Column id="colGroupExternalStep" hAlign="Left" width="120px">
                                     <Label id="lblGroupExternalStep"  text="External Process Step"/>
                                     <t:template>
                                         <Input id="inpGroupExternalStep" showValueHelp="true" valueHelpRequest="onExternalStepHelp"/>
                                     </t:template>
                                 </t:Column>
-                                                                <t:Column id="colGroupDescStep">
+                                    <t:Column id="colGroupDescStep" hAlign="Left" width="50px">
                                     <Label id="lblGroupDescStep" text="Desc. Step"/>
                                     <t:template>
                                         <Input id="inpGroupDescStep" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupProcessor">
+                                <t:Column id="colGroupProcessor" hAlign="Left" width="80px">
                                     <Label id="lblGroupProcessor" text="Processor"/>
                                     <t:template>
                                         <Input id="inpGroupProcessor" showValueHelp="true" valueHelpRequest="onProcessorHelp"/>
