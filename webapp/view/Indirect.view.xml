@@ -1,7 +1,274 @@
-<mvc:View controllerName="com.zewmindirect.controller.Indirect"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+<mvc:View 
+    controllerName="com.zewmindirect.controller.Indirect"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:t="sap.ui.table"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
+    <Page id="indirectPage" title="{i18n>title}">
+        <headerContent>
+            <Button 
+                id="btnHeaderSetStartTime"
+                text="Set Start Time" 
+                type="Emphasized"
+                press="onSetStartTime"/>
+            <Button 
+                id="btnHeaderSetEndTime"
+                text="Set End Time" 
+                type="Emphasized"
+                press="onSetEndTime"/>
+        </headerContent>
+        <content>
+            <IconTabBar id="idIndirectMainTabBar" select="onTabSelect" expandable="false">
+                <items>
+                   <IconTabFilter id="idCreateTab" key="create" text="Create">
+    <HBox id="idHbox">
+        <!-- Left Side Form -->
+        <f:SimpleForm 
+            id="formCreateIndirectLeft"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="4"
+            labelSpanS="12"
+            class="sapUiSmallMarginEnd"
+            width="48%">
+            <f:content>
+                <Label id="lblCreateExternalStep" text="External Step"/>
+                <Input id="inpCreateExternalStep" editable="true"/>
+                
+                <Label id="lblCreateProcessor" text="Processor"/>
+                <Input id="inpCreateProcessor" editable="false"/>
+                
+                <Label id="lblCreateIndirectTask" text="Indirect Task"/>
+                <Input id="inpCreateIndirectTask" editable="false"/>
+                
+                <Label id="lblCreateStep" text="Step"/>
+                <Input id="inpCreateStep"/>
+                
+                <Label id="lblCreateActivityArea" text="Activity Area"/>
+                <Input id="inpCreateActivityArea" editable="true"/>
+                
+                <Label id="lblCreateStatus" text="Status"/>
+                <Select id="selCreateStatus">
+                    <items>
+                        <core:Item id="itemCreateStatusCreate" key="CREATE" text="Create"/>
+                        <core:Item id="itemCreateStatusInProcess" key="IN_PROCESS" text="In Process"/>
+                        <core:Item id="itemCreateStatusCompleted" key="COMPLETED" text="Completed"/>
+                    </items>
+                </Select>
+            </f:content>
+        </f:SimpleForm>
+
+        <!-- Right Side Form -->
+        <f:SimpleForm 
+            id="formCreateIndirectRight"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="4"
+            labelSpanS="12"
+            width="70%">
+            <f:content>
+                <Label id="lblCreateStartDate" text="Start Date"/>
+                <DatePicker id="dpCreateStartDate" editable="true"/>
+                <TimePicker id="tpCreateStartTime" editable="true"/>
+                
+                <Label id="lblCreateEndDate" text="End Date"/>
+                <DatePicker id="dpCreateEndDate" editable="true"/>
+                <TimePicker id="tpCreateEndTime" editable="true"/>
+                
+                <Label id="lblCreatePlExDuration" text="Pl. Ex. Duration"/>
+                <Input id="inpCreatePlExDuration" editable="true"/>
+                
+                <Label id="lblCreateAssignmentKey" text="Assignment Key"/>
+                <Input id="inpCreateAssignmentKey" editable="true"/>
+                
+                <Label id="lblCreateDisposalParty" text="Disposal Party"/>
+                <Input id="inpCreateDisposalParty" editable="false"/>
+            </f:content>
+        </f:SimpleForm>
+    </HBox>
+</IconTabFilter>
+
+                    <IconTabFilter id="idCreateGroupTab" key="createGroup" text="Create Group">
+                        <t:Table
+                            id="tableCreateGroup"
+                            rows="{/GroupTableData}"
+                            selectionMode="None"
+                            visibleRowCount="10"
+                            >
+                            <t:columns>
+                                <t:Column id="colGroupIndirectLaborTask">
+                                    <Label id="lblGroupIndirectTask" text="Indirect Labor Task"/>
+                                    <t:template>
+                                        <Input id="inpGroupIndirectLaborTask" value="{IndirectLaborTask}" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+                                
+                                <t:Column id="colGroupMode">
+                                    <Label id="lblGroupMode" text="Mode"/>
+                                    <t:template>
+                                        <Button id="btnGroupChangeMode" icon="sap-icon://edit" press="onChangeMode"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <!-- Continue with similar pattern for remaining columns -->
+                                <!-- For brevity, I'll show a few more examples -->
+
+                                <t:Column id="colGroupPartyEntitled">
+                                    <Label id="lblGroupPartyEntitled" text="Party Entitled to Dispose"/>
+                                    <t:template>
+                                        <Input id="inpGroupPartyEntitled" showValueHelp="true" valueHelpRequest="onPartyValueHelp"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupExternalStep">
+                                    <Label id="lblGroupExternalStep"  text="External Process Step"/>
+                                    <t:template>
+                                        <Input id="inpGroupExternalStep" showValueHelp="true" valueHelpRequest="onExternalStepHelp"/>
+                                    </t:template>
+                                </t:Column>
+                                                                <t:Column id="colGroupDescStep">
+                                    <Label id="lblGroupDescStep" text="Desc. Step"/>
+                                    <t:template>
+                                        <Input id="inpGroupDescStep" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupProcessor">
+                                    <Label id="lblGroupProcessor" text="Processor"/>
+                                    <t:template>
+                                        <Input id="inpGroupProcessor" showValueHelp="true" valueHelpRequest="onProcessorHelp"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupProcessorName">
+                                    <Label id="lblGroupProcessorName" text="Full Name of Processor"/>
+                                    <t:template>
+                                        <Input id="inpGroupProcessorName" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupActivityArea">
+                                    <Label id="lblGroupActivityArea" text="Activity Area"/>
+                                    <t:template>
+                                        <Input id="inpGroupActivityArea" showValueHelp="true" valueHelpRequest="onActivityAreaHelp"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupStatus">
+                                    <Label id="lblGroupStatus" text="Status"/>
+                                    <t:template>
+                                        <Input id="inpGroupStatus" showValueHelp="true" valueHelpRequest="onStatusHelp"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupStartDate">
+                                    <Label id="lblGroupStartDate" text="Start Date"/>
+                                    <t:template>
+                                        <DatePicker id="dpGroupStartDate" valueFormat="yyyy-MM-dd"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupStartTime">
+                                    <Label id="lblGroupStartTime" text="Start Time"/>
+                                    <t:template>
+                                        <TimePicker id="tpGroupStartTime" valueFormat="HH:mm"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupEndDate">
+                                    <Label id="lblGroupEndDate" text="End Date"/>
+                                    <t:template>
+                                        <DatePicker id="dpGroupEndDate" valueFormat="yyyy-MM-dd"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupEndTime">
+                                    <Label id="lblGroupEndTime" text="End Time"/>
+                                    <t:template>
+                                        <TimePicker id="tpGroupEndTime" valueFormat="HH:mm"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupPlExDuration">
+                                    <Label id="lblGroupPlExDuration" text="Pl. Ex. Duration"/>
+                                    <t:template>
+                                        <Input id="inpGroupPlExDuration"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupTimeUnit">
+                                    <Label id="lblGroupTimeUnit" text="Time Unit"/>
+                                    <t:template>
+                                        <Input id="inpGroupTimeUnit" showValueHelp="true" valueHelpRequest="onTimeUnitHelp"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupAssignmentKey">
+                                    <Label id="lblGroupAssignmentKey" text="Assignment Key"/>
+                                    <t:template>
+                                        <Input id="inpGroupAssignmentKey"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupCreatedBy">
+                                    <Label id="lblGroupCreatedBy" text="Created By"/>
+                                    <t:template>
+                                        <Input id="inpGroupCreatedBy" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupCreatedOn">
+                                    <Label id="lblGroupCreatedOn" text="Created On"/>
+                                    <t:template>
+                                        <Input id="inpGroupCreatedOn" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupCreatedAt">
+                                    <Label id="lblGroupCreatedAt" text="Created At"/>
+                                    <t:template>
+                                        <Input id="inpGroupCreatedAt" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupChangedBy">
+                                    <Label id="lblGroupChangedBy" text="Changed By"/>
+                                    <t:template>
+                                        <Input id="inpGroupChangedBy" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupChangedOn">
+                                    <Label id="lblGroupChangedOn" text="Changed On"/>
+                                    <t:template>
+                                        <Input id="inpGroupChangedOn" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupChangedAt">
+                                    <Label id="lblGroupChangedAt" text="Changed At"/>
+                                    <t:template>
+                                        <Input id="inpGroupChangedAt" editable="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column id="colGroupExceptionCode">
+                                    <Label id="lblGroupExceptionCode" text="Exception Code"/>
+                                    <t:template>
+                                        <Input id="inpGroupExceptionCode"/>
+                                    </t:template>
+                                </t:Column>
+                                
+                            </t:columns>
+                        </t:Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
     </Page>
 </mvc:View>
