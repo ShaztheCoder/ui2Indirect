@@ -135,14 +135,14 @@
                             visibleRowCount="10"
                             >
                             <t:columns>
-                                <t:Column id="colGroupIndirectLaborTask" hAlign="Left" width="120px">
+                                <t:Column id="colGroupIndirectLaborTask" hAlign="Left" width="9rem">
                                     <Label id="lblGroupIndirectTask" text="Indirect Labor Task"/>
                                     <t:template>
                                         <Input id="inpGroupIndirectLaborTask" value="{IndirectLaborTask}" editable="false"/>
                                     </t:template>
                                 </t:Column>
                                 
-                                <t:Column id="colGroupMode" hAlign="Left" width="50px">
+                                <t:Column id="colGroupMode" hAlign="Left"  width="9rem">
                                     <Label id="lblGroupMode" text="Mode"/>
                                     <t:template>
                                         <Button id="btnGroupChangeMode" icon="sap-icon://edit" press="onChangeMode"/>
@@ -152,146 +152,146 @@
                                 <!-- Continue with similar pattern for remaining columns -->
                                 <!-- For brevity, I'll show a few more examples -->
 
-                                <t:Column id="colGroupPartyEntitled" hAlign="Left" width="50px">
+                                <t:Column id="colGroupPartyEntitled" hAlign="Left" width="9rem">
                                     <Label id="lblGroupPartyEntitled" text="Party Entitled to Dispose"/>
                                     <t:template>
                                         <Input id="inpGroupPartyEntitled" showValueHelp="true" valueHelpRequest="onPartyValueHelp"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupExternalStep" hAlign="Left" width="120px">
+                                <t:Column id="colGroupExternalStep" hAlign="Left" width="9rem">
                                     <Label id="lblGroupExternalStep"  text="External Process Step"/>
                                     <t:template>
                                         <Input id="inpGroupExternalStep" showValueHelp="true" valueHelpRequest="onExternalStepHelp"/>
                                     </t:template>
                                 </t:Column>
-                                    <t:Column id="colGroupDescStep" hAlign="Left" width="50px">
+                                    <t:Column id="colGroupDescStep" hAlign="Left" width="9rem">
                                     <Label id="lblGroupDescStep" text="Desc. Step"/>
                                     <t:template>
                                         <Input id="inpGroupDescStep" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupProcessor" hAlign="Left" width="80px">
+                                <t:Column id="colGroupProcessor" hAlign="Left" width="9rem">
                                     <Label id="lblGroupProcessor" text="Processor"/>
                                     <t:template>
                                         <Input id="inpGroupProcessor" showValueHelp="true" valueHelpRequest="onProcessorHelp"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupProcessorName">
+                                <t:Column id="colGroupProcessorName" width="9rem">
                                     <Label id="lblGroupProcessorName" text="Full Name of Processor"/>
                                     <t:template>
                                         <Input id="inpGroupProcessorName" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupActivityArea">
+                                <t:Column id="colGroupActivityArea" width="9rem">
                                     <Label id="lblGroupActivityArea" text="Activity Area"/>
                                     <t:template>
                                         <Input id="inpGroupActivityArea" showValueHelp="true" valueHelpRequest="onActivityAreaHelp"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupStatus">
+                                <t:Column id="colGroupStatus" width="9rem">
                                     <Label id="lblGroupStatus" text="Status"/>
                                     <t:template>
                                         <Input id="inpGroupStatus" showValueHelp="true" valueHelpRequest="onStatusHelp"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupStartDate">
+                                <t:Column id="colGroupStartDate" width="9rem">
                                     <Label id="lblGroupStartDate" text="Start Date"/>
                                     <t:template>
                                         <DatePicker id="dpGroupStartDate" valueFormat="yyyy-MM-dd"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupStartTime">
+                                <t:Column id="colGroupStartTime" width="9rem">
                                     <Label id="lblGroupStartTime" text="Start Time"/>
                                     <t:template>
                                         <TimePicker id="tpGroupStartTime" valueFormat="HH:mm"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupEndDate">
+                                <t:Column id="colGroupEndDate" width="9rem">
                                     <Label id="lblGroupEndDate" text="End Date"/>
                                     <t:template>
                                         <DatePicker id="dpGroupEndDate" valueFormat="yyyy-MM-dd"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupEndTime">
+                                <t:Column id="colGroupEndTime" width="9rem"> 
                                     <Label id="lblGroupEndTime" text="End Time"/>
                                     <t:template>
                                         <TimePicker id="tpGroupEndTime" valueFormat="HH:mm"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupPlExDuration">
+                                <t:Column id="colGroupPlExDuration" width="9rem">
                                     <Label id="lblGroupPlExDuration" text="Pl. Ex. Duration"/>
                                     <t:template>
                                         <Input id="inpGroupPlExDuration"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupTimeUnit">
+                                <t:Column id="colGroupTimeUnit" width="9rem">
                                     <Label id="lblGroupTimeUnit" text="Time Unit"/>
                                     <t:template>
                                         <Input id="inpGroupTimeUnit" showValueHelp="true" valueHelpRequest="onTimeUnitHelp"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupAssignmentKey">
+                                <t:Column id="colGroupAssignmentKey" width="9rem">
                                     <Label id="lblGroupAssignmentKey" text="Assignment Key"/>
                                     <t:template>
                                         <Input id="inpGroupAssignmentKey"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupCreatedBy">
+                                <t:Column id="colGroupCreatedBy" width="9rem">
                                     <Label id="lblGroupCreatedBy" text="Created By"/>
                                     <t:template>
                                         <Input id="inpGroupCreatedBy" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupCreatedOn">
+                                <t:Column id="colGroupCreatedOn" width="9rem">
                                     <Label id="lblGroupCreatedOn" text="Created On"/>
                                     <t:template>
                                         <Input id="inpGroupCreatedOn" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupCreatedAt">
+                                <t:Column id="colGroupCreatedAt" width="9rem">
                                     <Label id="lblGroupCreatedAt" text="Created At"/>
                                     <t:template>
                                         <Input id="inpGroupCreatedAt" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupChangedBy">
+                                <t:Column id="colGroupChangedBy" width="9rem">
                                     <Label id="lblGroupChangedBy" text="Changed By"/>
                                     <t:template>
                                         <Input id="inpGroupChangedBy" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupChangedOn">
+                                <t:Column id="colGroupChangedOn" width="9rem">
                                     <Label id="lblGroupChangedOn" text="Changed On"/>
                                     <t:template>
                                         <Input id="inpGroupChangedOn" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupChangedAt">
+                                <t:Column id="colGroupChangedAt" width="9rem">
                                     <Label id="lblGroupChangedAt" text="Changed At"/>
                                     <t:template>
                                         <Input id="inpGroupChangedAt" editable="false"/>
                                     </t:template>
                                 </t:Column>
 
-                                <t:Column id="colGroupExceptionCode">
+                                <t:Column id="colGroupExceptionCode" width="9rem">
                                     <Label id="lblGroupExceptionCode" text="Exception Code"/>
                                     <t:template>
                                         <Input id="inpGroupExceptionCode"/>
